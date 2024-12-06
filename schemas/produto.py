@@ -19,6 +19,12 @@ class ProdutoBuscaSchema(BaseModel):
     """
     id_lista: int = 1
 
+class ProdutoBuscaProdutoSchema(BaseModel):
+    """ Define como deve ser a estrutura que representa a busca de um produto. Que será
+        feita apenas com base no id do produto.
+    """
+    id: int = 1
+
 
 class ListagemProdutosSchema(BaseModel):
     """ Define como uma listagem de produtos será retornada.

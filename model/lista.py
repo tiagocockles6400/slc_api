@@ -9,7 +9,7 @@ class Lista(Base):
 
     id = Column("pk_lista", Integer, primary_key=True)
     tipo = Column(Integer)
-    nome = Column(String(120))
+    nome = Column(String(120), unique=True)
     valor_total = Column(Float)
     qtd_itens = Column(Integer)
 

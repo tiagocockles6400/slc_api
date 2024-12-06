@@ -21,7 +21,7 @@ lista_tag = Tag(name="Lista", description="Adição, visualização e remoção 
 
 @app.get('/', tags=[home_tag])
 def home():
-    """Redireciona para /openapi, tela que permite a escolha do estilo de documentação.
+    """Redireciona para /openap\i, tela que permite a escolha do estilo de documentação.
     """
     return redirect('/openapi')
 
@@ -30,7 +30,7 @@ def home():
 def add_produto(form: ProdutoSchema):
     """Adiciona um novo Produto à base de dados
 
-    Retorna uma representação dos produtos e comentários associados.
+    Retorna uma representação dos produtos de determinada lista.
     """
     produto = Produto(
         id_lista=form.id_lista,
@@ -43,22 +43,35 @@ def add_produto(form: ProdutoSchema):
         session = Session()
         # adicionando produto
         session.add(produto)
+        
         # efetivando o comando de adição de novo item na tabela
         session.commit()
-        logger.debug(f"Adicionado produto de nome: '{produto.nome}'")
+
+        registro = session.query(Lista).filter_by(id=form.id_lista).first()
+        if registro:
+            # Atualizar quantidades e valores da lista
+            registro.qtd_itens = registro.qtd_itens + form.quantidade
+            registro.valor_total = registro.valor_total + form.valor
+
+            # Salvar as alterações
+            session.commit()
+        else:
+            logger.warning("Lista não encontrada.")
+
+        logger.debug(f"Adicionado produto: '{produto.nome}'")
         return apresenta_produto(produto), 200
 
     except IntegrityError as e:
         # como a duplicidade do nome é a provável razão do IntegrityError
         error_msg = "Produto de mesmo nome já salvo na base :/"
         logger.warning(f"Erro ao adicionar produto '{produto.nome}', {error_msg}")
-        return {"mesage": error_msg}, 409
+        return {"message": error_msg}, 409
 
     except Exception as e:
         # caso um erro fora do previsto
         error_msg = "Não foi possível salvar novo item :/"
         logger.warning(f"Erro ao adicionar produto '{produto.nome}', {error_msg}")
-        return {"mesage": error_msg}, 400
+        return {"message": error_msg}, 400
 
 
 @app.get('/produtos', tags=[produto_tag], responses={"200": ListagemProdutosSchema, "404": ErrorSchema})
@@ -84,7 +97,7 @@ def get_produtos(query: ProdutoBuscaSchema):
 
 
 @app.delete('/produto', tags=[produto_tag], responses={"200": ProdutoDelSchema, "404": ErrorSchema})
-def del_produto(query: ProdutoBuscaSchema):
+def del_produto(query: ProdutoBuscaProdutoSchema):
     """Deleta um Produto a partir do id de produto informado
 
     Retorna uma mensagem de confirmação da remoção.
@@ -93,18 +106,30 @@ def del_produto(query: ProdutoBuscaSchema):
     # criando conexão com a base
     session = Session()
     # fazendo a remoção
+    produto = session.query(Produto).filter(Produto.id == query.id).first()
     count = session.query(Produto).filter(Produto.id == query.id).delete()
     session.commit()
+
+    registro = session.query(Lista).filter_by(id=produto.id_lista).first()
+    if registro:
+        # Atualizar quantidades e valores da lista
+        registro.qtd_itens = registro.qtd_itens - produto.quantidade
+        registro.valor_total = registro.valor_total - produto.valor
+
+        # Salvar as alterações
+        session.commit()
+    else:
+        logger.warning("Lista não encontrada.")
 
     if count:
         # retorna a representação da mensagem de confirmação
         logger.debug(f"Deletado produto #{query.id}")
-        return {"mesage": "Produto removido", "id": query.id}
+        return {"message": "Produto removido", "id": query.id}
     else:
         # se o produto não foi encontrado
         error_msg = "Produto não encontrado na base :/"
         logger.warning(f"Erro ao deletar produto #'{query.id}', {error_msg}")
-        return {"mesage": error_msg}, 404
+        return {"message": error_msg}, 404
 
 
 @app.post('/lista', tags=[lista_tag],
@@ -134,13 +159,13 @@ def add_lista(form: ListaSchema):
         # como a duplicidade do nome é a provável razão do IntegrityError
         error_msg = "Lista de mesma nome e tipo já salva na base :/"
         logger.warning(f"Erro ao adicionar lista '{lista.nome}', {error_msg}")
-        return {"mesage": error_msg}, 409
+        return {"message": error_msg}, 409
 
     except Exception as e:
         # caso um erro fora do previsto
         error_msg = "Não foi possível salvar novo item :/"
         logger.warning(f"Erro ao adicionar lista '{lista.nome}', {error_msg}")
-        return {"mesage": error_msg}, 400
+        return {"message": error_msg}, 400
 
 
 @app.get('/listas', tags=[lista_tag],
@@ -184,17 +209,16 @@ def get_lista(query: ListaBuscaSchema):
         # se a lista não foi encontrado
         error_msg = "Lista não encontrado na base :/"
         logger.warning(f"Erro ao buscar lista '{lista_id}', {error_msg}")
-        return {"mesage": error_msg}, 404
+        return {"message": error_msg}, 404
     else:
         logger.debug(f"Lista encontrada: '{lista.nome}'")
         # retorna a representação de lista
         return apresenta_lista(lista), 200
 
 
-@app.delete('/lista', tags=[lista_tag],
-            responses={"200": ListaDelSchema, "404": ErrorSchema})
+@app.delete('/lista', tags=[lista_tag], responses={"200": ListaDelSchema, "404": ErrorSchema})
 def del_lista(query: ListaBuscaSchema):
-    """Deleta uma lista a partir do id da lista informada
+    """Deleta uma lista a partir do id da lista informada e todos os seus produtos
 
     Retorna uma mensagem de confirmação da remoção.
     """
@@ -202,14 +226,20 @@ def del_lista(query: ListaBuscaSchema):
     logger.debug(f"Deletando dados sobre lista #{query.id}")
     # criando conexão com a base
     session = Session()
-    # fazendo a remoção
+    # fazendo a remoção dos produtos
+    count = session.query(Produto).filter(Produto.id_lista == query.id).delete()
+    session.commit()
+
+    # fazendo a remoção da lista
     count = session.query(Lista).filter(Lista.id == query.id).delete()
     session.commit()
+
+    
 
     if count:
         # retorna a representação da mensagem de confirmação
         logger.debug(f"Deletado lista #{query.id}")
-        return {"mesage": "lista removida", "id": query.id}
+        return {"message": "lista removida", "id": query.id}
     else:
         # se a lista_id não foi encontrada
         error_msg = "Lista não encontrada na base :/"

@@ -1,4 +1,4 @@
-from sqlalchemy import Column, String, Integer, DateTime, Float
+from sqlalchemy import Column, String, Integer, DateTime, Float, UniqueConstraint
 from sqlalchemy.orm import relationship
 from datetime import datetime
 from typing import Union
@@ -11,10 +11,11 @@ class Produto(Base):
 
     id = Column("pk_produto", Integer, primary_key=True)
     id_lista = Column(Integer)
-    nome = Column(String(140), unique=True)
+    nome = Column(String(140))
     quantidade = Column(Integer)
     valor = Column(Float)
     data_insercao = Column(DateTime, default=datetime.now())
+    __table_args__ = (UniqueConstraint('nome', 'id_lista', name='uc_nome_id_lista'),)
 
     def __init__(self, id_lista:int, nome:str, quantidade:int, valor:float,
                  data_insercao:Union[DateTime, None] = None):

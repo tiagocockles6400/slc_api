@@ -1,69 +1,48 @@
-[2024-11-28 23:13:54,442] INFO _log() L97   [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+[2024-12-05 22:18:36,810] INFO _log() L97   [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
  * Running on all addresses (0.0.0.0)
  * Running on http://127.0.0.1:5000
  * Running on http://192.168.1.73:5000 - call_trace=C:\Users\tiago\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\_internal.py L97  
-[2024-11-28 23:13:54,450] INFO _log() L97   [33mPress CTRL+C to quit[0m - call_trace=C:\Users\tiago\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\_internal.py L97  
-[2024-11-28 23:14:00,751] ERROR log_exception() L875  Exception on /produtos [GET] - call_trace=C:\Users\tiago\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py L875 
-Traceback (most recent call last):
-  File "C:\Users\tiago\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
-    response = self.full_dispatch_request()
-  File "C:\Users\tiago\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 919, in full_dispatch_request
-    rv = self.handle_user_exception(e)
-  File "C:\Users\tiago\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask_cors\extension.py", line 194, in wrapped_function
-    return cors_after_request(app.make_response(f(*args, **kwargs)))
-                                                ~^^^^^^^^^^^^^^^^^
-  File "C:\Users\tiago\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 917, in full_dispatch_request
-    rv = self.dispatch_request()
-  File "C:\Users\tiago\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 902, in dispatch_request
-    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
-           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
-  File "C:\Users\tiago\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask_openapi3\scaffold.py", line 117, in view_func
-    response = func(**func_kwargs)
-  File "D:\Tiago\PUCRio\mvp\api_slc\app.py", line 80, in get_produtos
-    logger.debug(f"%d produtos encontrados" % len(produtos))
-                                              ~~~^^^^^^^^^^
-TypeError: object of type 'Query' has no len()
-[2024-11-28 23:14:01,009] INFO _log() L97   127.0.0.1 - - [28/Nov/2024 23:14:01] "[35m[1mGET /produtos?id_lista2 HTTP/1.1[0m" 500 - - call_trace=C:\Users\tiago\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\_internal.py L97  
-[2024-11-28 23:14:04,987] INFO _log() L97   127.0.0.1 - - [28/Nov/2024 23:14:04] "GET /listas HTTP/1.1" 200 - - call_trace=C:\Users\tiago\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\_internal.py L97  
-[2024-11-28 23:14:10,350] ERROR log_exception() L875  Exception on /produtos [GET] - call_trace=C:\Users\tiago\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py L875 
-Traceback (most recent call last):
-  File "C:\Users\tiago\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
-    response = self.full_dispatch_request()
-  File "C:\Users\tiago\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 919, in full_dispatch_request
-    rv = self.handle_user_exception(e)
-  File "C:\Users\tiago\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask_cors\extension.py", line 194, in wrapped_function
-    return cors_after_request(app.make_response(f(*args, **kwargs)))
-                                                ~^^^^^^^^^^^^^^^^^
-  File "C:\Users\tiago\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 917, in full_dispatch_request
-    rv = self.dispatch_request()
-  File "C:\Users\tiago\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 902, in dispatch_request
-    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
-           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
-  File "C:\Users\tiago\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask_openapi3\scaffold.py", line 117, in view_func
-    response = func(**func_kwargs)
-  File "D:\Tiago\PUCRio\mvp\api_slc\app.py", line 80, in get_produtos
-    logger.debug(f"%d produtos encontrados" % len(produtos))
-                                              ~~~^^^^^^^^^^
-TypeError: object of type 'Query' has no len()
-[2024-11-28 23:14:10,419] INFO _log() L97   127.0.0.1 - - [28/Nov/2024 23:14:10] "[35m[1mGET /produtos?id_lista1 HTTP/1.1[0m" 500 - - call_trace=C:\Users\tiago\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\_internal.py L97  
-[2024-11-28 23:14:14,322] INFO _log() L97   127.0.0.1 - - [28/Nov/2024 23:14:14] "GET /listas HTTP/1.1" 200 - - call_trace=C:\Users\tiago\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\_internal.py L97  
-[2024-11-28 23:15:00,858] INFO _log() L97   [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+[2024-12-05 22:18:36,815] INFO _log() L97   [33mPress CTRL+C to quit[0m - call_trace=C:\Users\tiago\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\_internal.py L97  
+[2024-12-05 22:18:36,817] INFO _log() L97    * Restarting with stat - call_trace=C:\Users\tiago\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\_internal.py L97  
+[2024-12-05 22:19:02,799] INFO _log() L97   127.0.0.1 - - [05/Dec/2024 22:19:02] "[32mGET / HTTP/1.1[0m" 302 - - call_trace=C:\Users\tiago\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\_internal.py L97  
+[2024-12-05 22:19:02,826] INFO _log() L97   127.0.0.1 - - [05/Dec/2024 22:19:02] "GET /openapi/ HTTP/1.1" 200 - - call_trace=C:\Users\tiago\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\_internal.py L97  
+[2024-12-05 22:19:03,097] INFO _log() L97   127.0.0.1 - - [05/Dec/2024 22:19:03] "[36mGET /openapi/swagger/images/swagger.svg HTTP/1.1[0m" 304 - - call_trace=C:\Users\tiago\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\_internal.py L97  
+[2024-12-05 22:19:04,600] INFO _log() L97   127.0.0.1 - - [05/Dec/2024 22:19:04] "GET /openapi/swagger HTTP/1.1" 200 - - call_trace=C:\Users\tiago\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\_internal.py L97  
+[2024-12-05 22:19:04,642] INFO _log() L97   127.0.0.1 - - [05/Dec/2024 22:19:04] "[36mGET /openapi/swagger/css/swagger-ui.css HTTP/1.1[0m" 304 - - call_trace=C:\Users\tiago\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\_internal.py L97  
+[2024-12-05 22:19:04,851] INFO _log() L97   127.0.0.1 - - [05/Dec/2024 22:19:04] "[36mGET /openapi/swagger/js/swagger-ui-bundle.js HTTP/1.1[0m" 304 - - call_trace=C:\Users\tiago\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\_internal.py L97  
+[2024-12-05 22:19:04,958] INFO _log() L97   127.0.0.1 - - [05/Dec/2024 22:19:04] "[36mGET /openapi/swagger/js/swagger-ui-standalone-preset.js HTTP/1.1[0m" 304 - - call_trace=C:\Users\tiago\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\_internal.py L97  
+[2024-12-05 22:19:05,358] INFO _log() L97   127.0.0.1 - - [05/Dec/2024 22:19:05] "GET /openapi/openapi.json HTTP/1.1" 200 - - call_trace=C:\Users\tiago\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\_internal.py L97  
+[2024-12-05 22:19:14,634] INFO _log() L97   127.0.0.1 - - [05/Dec/2024 22:19:14] "DELETE /produto?id=5 HTTP/1.1" 200 - - call_trace=C:\Users\tiago\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\_internal.py L97  
+[2024-12-05 22:19:26,698] INFO _log() L97   127.0.0.1 - - [05/Dec/2024 22:19:26] "GET /lista?id=3 HTTP/1.1" 200 - - call_trace=C:\Users\tiago\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\_internal.py L97  
+[2024-12-05 22:19:26,707] INFO _log() L97   127.0.0.1 - - [05/Dec/2024 22:19:26] "GET /produtos?id_lista=3 HTTP/1.1" 200 - - call_trace=C:\Users\tiago\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\_internal.py L97  
+[2024-12-05 22:19:32,989] INFO _log() L97   127.0.0.1 - - [05/Dec/2024 22:19:32] "OPTIONS /produto?id=6 HTTP/1.1" 200 - - call_trace=C:\Users\tiago\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\_internal.py L97  
+[2024-12-05 22:19:33,079] INFO _log() L97   127.0.0.1 - - [05/Dec/2024 22:19:33] "DELETE /produto?id=6 HTTP/1.1" 200 - - call_trace=C:\Users\tiago\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\_internal.py L97  
+[2024-12-05 22:19:38,834] INFO _log() L97   127.0.0.1 - - [05/Dec/2024 22:19:38] "GET /lista?id=3 HTTP/1.1" 200 - - call_trace=C:\Users\tiago\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\_internal.py L97  
+[2024-12-05 22:19:38,836] INFO _log() L97   127.0.0.1 - - [05/Dec/2024 22:19:38] "GET /produtos?id_lista=3 HTTP/1.1" 200 - - call_trace=C:\Users\tiago\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\_internal.py L97  
+[2024-12-05 22:20:00,381] INFO _log() L97   127.0.0.1 - - [05/Dec/2024 22:20:00] "POST /produto HTTP/1.1" 200 - - call_trace=C:\Users\tiago\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\_internal.py L97  
+[2024-12-05 22:20:04,704] INFO _log() L97   127.0.0.1 - - [05/Dec/2024 22:20:04] "GET /lista?id=3 HTTP/1.1" 200 - - call_trace=C:\Users\tiago\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\_internal.py L97  
+[2024-12-05 22:20:04,705] INFO _log() L97   127.0.0.1 - - [05/Dec/2024 22:20:04] "GET /produtos?id_lista=3 HTTP/1.1" 200 - - call_trace=C:\Users\tiago\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\_internal.py L97  
+[2024-12-05 22:22:09,427] INFO _log() L97    * Detected change in 'D:\\Tiago\\PUCRio\\slc-mvp\\slc_api\\app.py', reloading - call_trace=C:\Users\tiago\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\_internal.py L97  
+[2024-12-05 22:22:09,576] INFO _log() L97    * Restarting with stat - call_trace=C:\Users\tiago\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\_internal.py L97  
+[2024-12-05 22:22:15,579] INFO _log() L97    * Detected change in 'D:\\Tiago\\PUCRio\\slc-mvp\\slc_api\\app.py', reloading - call_trace=C:\Users\tiago\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\_internal.py L97  
+[2024-12-05 22:22:15,738] INFO _log() L97    * Restarting with stat - call_trace=C:\Users\tiago\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\_internal.py L97  
+[2024-12-05 22:40:47,956] INFO _log() L97    * Detected change in 'D:\\Tiago\\PUCRio\\slc-mvp\\slc_api\\app.py', reloading - call_trace=C:\Users\tiago\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\_internal.py L97  
+[2024-12-05 22:40:48,127] INFO _log() L97    * Restarting with stat - call_trace=C:\Users\tiago\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\_internal.py L97  
+[2024-12-05 22:40:58,418] INFO _log() L97   [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
  * Running on all addresses (0.0.0.0)
  * Running on http://127.0.0.1:5000
  * Running on http://192.168.1.73:5000 - call_trace=C:\Users\tiago\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\_internal.py L97  
-[2024-11-28 23:15:00,860] INFO _log() L97   [33mPress CTRL+C to quit[0m - call_trace=C:\Users\tiago\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\_internal.py L97  
-[2024-11-28 23:15:04,359] INFO _log() L97   127.0.0.1 - - [28/Nov/2024 23:15:04] "GET /listas HTTP/1.1" 200 - - call_trace=C:\Users\tiago\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\_internal.py L97  
-[2024-11-28 23:15:09,994] INFO _log() L97   127.0.0.1 - - [28/Nov/2024 23:15:09] "GET /produtos?id_lista1 HTTP/1.1" 200 - - call_trace=C:\Users\tiago\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\_internal.py L97  
-[2024-11-28 23:15:10,009] INFO _log() L97   127.0.0.1 - - [28/Nov/2024 23:15:10] "GET /lista?id=1 HTTP/1.1" 200 - - call_trace=C:\Users\tiago\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\_internal.py L97  
-[2024-11-28 23:15:10,023] INFO _log() L97   127.0.0.1 - - [28/Nov/2024 23:15:10] "GET /lista?id=1 HTTP/1.1" 200 - - call_trace=C:\Users\tiago\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\_internal.py L97  
-[2024-11-28 23:15:17,641] INFO _log() L97   127.0.0.1 - - [28/Nov/2024 23:15:17] "GET /produtos?id_lista2 HTTP/1.1" 200 - - call_trace=C:\Users\tiago\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\_internal.py L97  
-[2024-11-28 23:15:17,670] INFO _log() L97   127.0.0.1 - - [28/Nov/2024 23:15:17] "GET /lista?id=1 HTTP/1.1" 200 - - call_trace=C:\Users\tiago\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\_internal.py L97  
-[2024-11-28 23:15:17,681] INFO _log() L97   127.0.0.1 - - [28/Nov/2024 23:15:17] "GET /lista?id=1 HTTP/1.1" 200 - - call_trace=C:\Users\tiago\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\_internal.py L97  
-[2024-11-28 23:15:20,529] INFO _log() L97   127.0.0.1 - - [28/Nov/2024 23:15:20] "GET /produtos?id_lista2 HTTP/1.1" 200 - - call_trace=C:\Users\tiago\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\_internal.py L97  
-[2024-11-28 23:15:20,557] INFO _log() L97   127.0.0.1 - - [28/Nov/2024 23:15:20] "GET /lista?id=1 HTTP/1.1" 200 - - call_trace=C:\Users\tiago\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\_internal.py L97  
-[2024-11-28 23:15:20,581] INFO _log() L97   127.0.0.1 - - [28/Nov/2024 23:15:20] "GET /lista?id=1 HTTP/1.1" 200 - - call_trace=C:\Users\tiago\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\_internal.py L97  
-[2024-11-28 23:17:20,808] INFO _log() L97   [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
- * Running on all addresses (0.0.0.0)
- * Running on http://127.0.0.1:5000
- * Running on http://192.168.1.73:5000 - call_trace=C:\Users\tiago\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\_internal.py L97  
-[2024-11-28 23:17:20,810] INFO _log() L97   [33mPress CTRL+C to quit[0m - call_trace=C:\Users\tiago\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\_internal.py L97  
+[2024-12-05 22:40:58,419] INFO _log() L97   [33mPress CTRL+C to quit[0m - call_trace=C:\Users\tiago\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\_internal.py L97  
+[2024-12-05 22:40:58,421] INFO _log() L97    * Restarting with stat - call_trace=C:\Users\tiago\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\_internal.py L97  
+[2024-12-05 22:41:19,203] INFO _log() L97   127.0.0.1 - - [05/Dec/2024 22:41:19] "[32mGET / HTTP/1.1[0m" 302 - - call_trace=C:\Users\tiago\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\_internal.py L97  
+[2024-12-05 22:41:19,215] INFO _log() L97   127.0.0.1 - - [05/Dec/2024 22:41:19] "GET /openapi/ HTTP/1.1" 200 - - call_trace=C:\Users\tiago\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\_internal.py L97  
+[2024-12-05 22:41:19,499] INFO _log() L97   127.0.0.1 - - [05/Dec/2024 22:41:19] "[36mGET /openapi/swagger/images/swagger.svg HTTP/1.1[0m" 304 - - call_trace=C:\Users\tiago\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\_internal.py L97  
+[2024-12-05 22:41:21,071] INFO _log() L97   127.0.0.1 - - [05/Dec/2024 22:41:21] "GET /openapi/swagger HTTP/1.1" 200 - - call_trace=C:\Users\tiago\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\_internal.py L97  
+[2024-12-05 22:41:21,121] INFO _log() L97   127.0.0.1 - - [05/Dec/2024 22:41:21] "[36mGET /openapi/swagger/css/swagger-ui.css HTTP/1.1[0m" 304 - - call_trace=C:\Users\tiago\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\_internal.py L97  
+[2024-12-05 22:41:21,324] INFO _log() L97   127.0.0.1 - - [05/Dec/2024 22:41:21] "[36mGET /openapi/swagger/js/swagger-ui-bundle.js HTTP/1.1[0m" 304 - - call_trace=C:\Users\tiago\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\_internal.py L97  
+[2024-12-05 22:41:21,431] INFO _log() L97   127.0.0.1 - - [05/Dec/2024 22:41:21] "[36mGET /openapi/swagger/js/swagger-ui-standalone-preset.js HTTP/1.1[0m" 304 - - call_trace=C:\Users\tiago\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\_internal.py L97  
+[2024-12-05 22:41:21,864] INFO _log() L97   127.0.0.1 - - [05/Dec/2024 22:41:21] "GET /openapi/openapi.json HTTP/1.1" 200 - - call_trace=C:\Users\tiago\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\_internal.py L97  
+[2024-12-05 22:41:31,511] INFO _log() L97   127.0.0.1 - - [05/Dec/2024 22:41:31] "GET /lista?id=3 HTTP/1.1" 200 - - call_trace=C:\Users\tiago\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\_internal.py L97  
+[2024-12-05 22:41:31,513] INFO _log() L97   127.0.0.1 - - [05/Dec/2024 22:41:31] "GET /produtos?id_lista=3 HTTP/1.1" 200 - - call_trace=C:\Users\tiago\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\_internal.py L97  
+[2024-12-05 22:41:36,591] INFO _log() L97   127.0.0.1 - - [05/Dec/2024 22:41:36] "GET /listas HTTP/1.1" 200 - - call_trace=C:\Users\tiago\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\_internal.py L97  
+[2024-12-05 22:53:45,418] INFO _log() L97    * Restarting with stat - call_trace=C:\Users\tiago\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\_internal.py L97  

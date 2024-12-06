@@ -1,4 +1,4 @@
-[2024-11-28 21:14:21,093] ERROR log_exception() L875  Exception on /listas [GET] - call_trace=C:\Users\tiago\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py L875 
+[2024-12-05 22:04:27,813] ERROR log_exception() L875  Exception on /produto [DELETE] - call_trace=C:\Users\tiago\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py L875 
 Traceback (most recent call last):
   File "C:\Users\tiago\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
     response = self.full_dispatch_request()
@@ -14,61 +14,73 @@ Traceback (most recent call last):
            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
   File "C:\Users\tiago\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask_openapi3\scaffold.py", line 117, in view_func
     response = func(**func_kwargs)
-  File "D:\Tiago\PUCRio\mvp\api_slc\app.py", line 186, in get_listas
-    listas = session.query(Lista).all()
-  File "C:\Users\tiago\AppData\Local\Programs\Python\Python313\Lib\site-packages\sqlalchemy\orm\query.py", line 2673, in all
-    return self._iter().all()  # type: ignore
-           ~~~~~~~~~~^^
-  File "C:\Users\tiago\AppData\Local\Programs\Python\Python313\Lib\site-packages\sqlalchemy\orm\query.py", line 2827, in _iter
-    result: Union[ScalarResult[_T], Result[_T]] = self.session.execute(
-                                                  ~~~~~~~~~~~~~~~~~~~~^
-        statement,
-        ^^^^^^^^^^
-        params,
-        ^^^^^^^
-        execution_options={"_sa_orm_load_options": self.load_options},
-        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-    )
-    ^
-  File "C:\Users\tiago\AppData\Local\Programs\Python\Python313\Lib\site-packages\sqlalchemy\orm\session.py", line 2362, in execute
-    return self._execute_internal(
-           ~~~~~~~~~~~~~~~~~~~~~~^
-        statement,
-        ^^^^^^^^^^
-    ...<4 lines>...
-        _add_event=_add_event,
-        ^^^^^^^^^^^^^^^^^^^^^^
-    )
-    ^
-  File "C:\Users\tiago\AppData\Local\Programs\Python\Python313\Lib\site-packages\sqlalchemy\orm\session.py", line 2237, in _execute_internal
-    conn = self._connection_for_bind(bind)
-  File "C:\Users\tiago\AppData\Local\Programs\Python\Python313\Lib\site-packages\sqlalchemy\orm\session.py", line 2106, in _connection_for_bind
-    return trans._connection_for_bind(engine, execution_options)
-           ~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "<string>", line 2, in _connection_for_bind
-  File "C:\Users\tiago\AppData\Local\Programs\Python\Python313\Lib\site-packages\sqlalchemy\orm\state_changes.py", line 139, in _go
-    ret_value = fn(self, *arg, **kw)
-  File "C:\Users\tiago\AppData\Local\Programs\Python\Python313\Lib\site-packages\sqlalchemy\orm\session.py", line 1189, in _connection_for_bind
-    conn = bind.connect()
-  File "C:\Users\tiago\AppData\Local\Programs\Python\Python313\Lib\site-packages\sqlalchemy\engine\base.py", line 3278, in connect
-    return self._connection_cls(self)
-           ~~~~~~~~~~~~~~~~~~~~^^^^^^
-  File "C:\Users\tiago\AppData\Local\Programs\Python\Python313\Lib\site-packages\sqlalchemy\engine\base.py", line 146, in __init__
-    self._dbapi_connection = engine.raw_connection()
-                             ~~~~~~~~~~~~~~~~~~~~~^^
-  File "C:\Users\tiago\AppData\Local\Programs\Python\Python313\Lib\site-packages\sqlalchemy\engine\base.py", line 3302, in raw_connection
-    return self.pool.connect()
-           ~~~~~~~~~~~~~~~~~^^
-  File "C:\Users\tiago\AppData\Local\Programs\Python\Python313\Lib\site-packages\sqlalchemy\pool\base.py", line 449, in connect
-    return _ConnectionFairy._checkout(self)
-           ~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
-  File "C:\Users\tiago\AppData\Local\Programs\Python\Python313\Lib\site-packages\sqlalchemy\pool\base.py", line 1263, in _checkout
-    fairy = _ConnectionRecord.checkout(pool)
-  File "C:\Users\tiago\AppData\Local\Programs\Python\Python313\Lib\site-packages\sqlalchemy\pool\base.py", line 712, in checkout
-    rec = pool._do_get()
-  File "C:\Users\tiago\AppData\Local\Programs\Python\Python313\Lib\site-packages\sqlalchemy\pool\impl.py", line 168, in _do_get
-    raise exc.TimeoutError(
-    ...<4 lines>...
-    )
-sqlalchemy.exc.TimeoutError: QueuePool limit of size 5 overflow 10 reached, connection timed out, timeout 30.00 (Background on this error at: https://sqlalche.me/e/20/3o7r)
-[2024-11-28 21:14:21,286] INFO _log() L97   127.0.0.1 - - [28/Nov/2024 21:14:21] "[35m[1mGET /listas HTTP/1.1[0m" 500 - - call_trace=C:\Users\tiago\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\_internal.py L97  
+  File "D:\Tiago\PUCRio\slc-mvp\slc_api\app.py", line 92, in del_produto
+    logger.debug(f"Deletando dados sobre produto #{query.id}")
+                                                   ^^^^^^^^
+  File "C:\Users\tiago\AppData\Local\Programs\Python\Python313\Lib\site-packages\pydantic\main.py", line 892, in __getattr__
+    raise AttributeError(f'{type(self).__name__!r} object has no attribute {item!r}')
+AttributeError: 'ProdutoBuscaSchema' object has no attribute 'id'
+[2024-12-05 22:04:27,858] INFO _log() L97   127.0.0.1 - - [05/Dec/2024 22:04:27] "[35m[1mDELETE /produto?id=5 HTTP/1.1[0m" 500 - - call_trace=C:\Users\tiago\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\_internal.py L97  
+[2024-12-05 22:04:33,285] INFO _log() L97   127.0.0.1 - - [05/Dec/2024 22:04:33] "GET /lista?id=3 HTTP/1.1" 200 - - call_trace=C:\Users\tiago\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\_internal.py L97  
+[2024-12-05 22:04:33,287] INFO _log() L97   127.0.0.1 - - [05/Dec/2024 22:04:33] "GET /produtos?id_lista=3 HTTP/1.1" 200 - - call_trace=C:\Users\tiago\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\_internal.py L97  
+[2024-12-05 22:04:36,688] INFO _log() L97   127.0.0.1 - - [05/Dec/2024 22:04:36] "OPTIONS /produto?id=5 HTTP/1.1" 200 - - call_trace=C:\Users\tiago\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\_internal.py L97  
+[2024-12-05 22:04:36,694] ERROR log_exception() L875  Exception on /produto [DELETE] - call_trace=C:\Users\tiago\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py L875 
+Traceback (most recent call last):
+  File "C:\Users\tiago\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\tiago\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\tiago\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask_cors\extension.py", line 194, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+                                                ~^^^^^^^^^^^^^^^^^
+  File "C:\Users\tiago\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\tiago\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\tiago\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask_openapi3\scaffold.py", line 117, in view_func
+    response = func(**func_kwargs)
+  File "D:\Tiago\PUCRio\slc-mvp\slc_api\app.py", line 92, in del_produto
+    logger.debug(f"Deletando dados sobre produto #{query.id}")
+                                                   ^^^^^^^^
+  File "C:\Users\tiago\AppData\Local\Programs\Python\Python313\Lib\site-packages\pydantic\main.py", line 892, in __getattr__
+    raise AttributeError(f'{type(self).__name__!r} object has no attribute {item!r}')
+AttributeError: 'ProdutoBuscaSchema' object has no attribute 'id'
+[2024-12-05 22:04:36,706] INFO _log() L97   127.0.0.1 - - [05/Dec/2024 22:04:36] "[35m[1mDELETE /produto?id=5 HTTP/1.1[0m" 500 - - call_trace=C:\Users\tiago\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\_internal.py L97  
+[2024-12-05 22:05:37,158] INFO _log() L97   127.0.0.1 - - [05/Dec/2024 22:05:37] "GET /lista?id=3 HTTP/1.1" 200 - - call_trace=C:\Users\tiago\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\_internal.py L97  
+[2024-12-05 22:05:37,161] INFO _log() L97   127.0.0.1 - - [05/Dec/2024 22:05:37] "GET /produtos?id_lista=3 HTTP/1.1" 200 - - call_trace=C:\Users\tiago\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\_internal.py L97  
+[2024-12-05 22:05:47,748] ERROR log_exception() L875  Exception on /produto [DELETE] - call_trace=C:\Users\tiago\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py L875 
+Traceback (most recent call last):
+  File "C:\Users\tiago\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\tiago\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\tiago\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask_cors\extension.py", line 194, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+                                                ~^^^^^^^^^^^^^^^^^
+  File "C:\Users\tiago\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\tiago\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\tiago\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask_openapi3\scaffold.py", line 117, in view_func
+    response = func(**func_kwargs)
+  File "D:\Tiago\PUCRio\slc-mvp\slc_api\app.py", line 92, in del_produto
+    logger.debug(f"Deletando dados sobre produto #{query.id}")
+                                                   ^^^^^^^^
+  File "C:\Users\tiago\AppData\Local\Programs\Python\Python313\Lib\site-packages\pydantic\main.py", line 892, in __getattr__
+    raise AttributeError(f'{type(self).__name__!r} object has no attribute {item!r}')
+AttributeError: 'ProdutoBuscaSchema' object has no attribute 'id'
+[2024-12-05 22:05:47,763] INFO _log() L97   127.0.0.1 - - [05/Dec/2024 22:05:47] "[35m[1mDELETE /produto?id_lista=5 HTTP/1.1[0m" 500 - - call_trace=C:\Users\tiago\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\_internal.py L97  
+[2024-12-05 22:10:47,248] INFO _log() L97   [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.1.73:5000 - call_trace=C:\Users\tiago\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\_internal.py L97  
+[2024-12-05 22:10:47,248] INFO _log() L97   [33mPress CTRL+C to quit[0m - call_trace=C:\Users\tiago\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\_internal.py L97  
+[2024-12-05 22:10:47,275] INFO _log() L97    * Restarting with stat - call_trace=C:\Users\tiago\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\_internal.py L97  
+[2024-12-05 22:10:59,622] INFO _log() L97   127.0.0.1 - - [05/Dec/2024 22:10:59] "GET /openapi/swagger HTTP/1.1" 200 - - call_trace=C:\Users\tiago\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\_internal.py L97  
+[2024-12-05 22:10:59,720] INFO _log() L97   127.0.0.1 - - [05/Dec/2024 22:10:59] "GET /openapi/swagger/css/swagger-ui.css HTTP/1.1" 200 - - call_trace=C:\Users\tiago\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\_internal.py L97  
+[2024-12-05 22:10:59,897] INFO _log() L97   127.0.0.1 - - [05/Dec/2024 22:10:59] "GET /openapi/swagger/js/swagger-ui-bundle.js HTTP/1.1" 200 - - call_trace=C:\Users\tiago\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\_internal.py L97  
+[2024-12-05 22:10:59,976] INFO _log() L97   127.0.0.1 - - [05/Dec/2024 22:10:59] "GET /openapi/swagger/js/swagger-ui-standalone-preset.js HTTP/1.1" 200 - - call_trace=C:\Users\tiago\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\_internal.py L97  
+[2024-12-05 22:11:00,393] INFO _log() L97   127.0.0.1 - - [05/Dec/2024 22:11:00] "GET /openapi/openapi.json HTTP/1.1" 200 - - call_trace=C:\Users\tiago\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\_internal.py L97  
+[2024-12-05 22:17:13,576] INFO _log() L97    * Restarting with stat - call_trace=C:\Users\tiago\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\_internal.py L97  
