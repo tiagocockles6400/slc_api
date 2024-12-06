@@ -1,0 +1,59 @@
+[2024-11-28 23:27:46,915] INFO _log() L97   127.0.0.1 - - [28/Nov/2024 23:27:46] "GET /produtos?id_lista=1 HTTP/1.1" 200 - - call_trace=C:\Users\tiago\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\_internal.py L97  
+[2024-11-28 23:27:46,948] INFO _log() L97   127.0.0.1 - - [28/Nov/2024 23:27:46] "GET /lista?id=1 HTTP/1.1" 200 - - call_trace=C:\Users\tiago\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\_internal.py L97  
+[2024-11-28 23:27:46,965] INFO _log() L97   127.0.0.1 - - [28/Nov/2024 23:27:46] "GET /lista?id=1 HTTP/1.1" 200 - - call_trace=C:\Users\tiago\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\_internal.py L97  
+[2024-11-28 23:28:12,562] INFO _log() L97   127.0.0.1 - - [28/Nov/2024 23:28:12] "GET /produtos?id_lista=1 HTTP/1.1" 200 - - call_trace=C:\Users\tiago\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\_internal.py L97  
+[2024-11-28 23:28:12,616] INFO _log() L97   127.0.0.1 - - [28/Nov/2024 23:28:12] "GET /lista?id=1 HTTP/1.1" 200 - - call_trace=C:\Users\tiago\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\_internal.py L97  
+[2024-11-28 23:28:12,624] INFO _log() L97   127.0.0.1 - - [28/Nov/2024 23:28:12] "GET /lista?id=1 HTTP/1.1" 200 - - call_trace=C:\Users\tiago\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\_internal.py L97  
+[2024-11-28 23:28:21,502] INFO _log() L97   127.0.0.1 - - [28/Nov/2024 23:28:21] "OPTIONS /produto?id=teste HTTP/1.1" 200 - - call_trace=C:\Users\tiago\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\_internal.py L97  
+[2024-11-28 23:28:21,507] ERROR log_exception() L875  Exception on /produto [DELETE] - call_trace=C:\Users\tiago\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py L875 
+Traceback (most recent call last):
+  File "C:\Users\tiago\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\Users\tiago\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\Users\tiago\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask_cors\extension.py", line 194, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+                                                ~^^^^^^^^^^^^^^^^^
+  File "C:\Users\tiago\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\Users\tiago\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\Users\tiago\AppData\Local\Programs\Python\Python313\Lib\site-packages\flask_openapi3\scaffold.py", line 117, in view_func
+    response = func(**func_kwargs)
+  File "D:\Tiago\PUCRio\mvp\api_slc\app.py", line 92, in del_produto
+    logger.debug(f"Deletando dados sobre produto #{query.id}")
+                                                   ^^^^^^^^
+  File "C:\Users\tiago\AppData\Local\Programs\Python\Python313\Lib\site-packages\pydantic\main.py", line 892, in __getattr__
+    raise AttributeError(f'{type(self).__name__!r} object has no attribute {item!r}')
+AttributeError: 'ProdutoBuscaSchema' object has no attribute 'id'
+[2024-11-28 23:28:21,520] INFO _log() L97   127.0.0.1 - - [28/Nov/2024 23:28:21] "[35m[1mDELETE /produto?id=teste HTTP/1.1[0m" 500 - - call_trace=C:\Users\tiago\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\_internal.py L97  
+[2024-11-28 23:33:02,510] INFO _log() L97   127.0.0.1 - - [28/Nov/2024 23:33:02] "GET /produtos?id_lista=1 HTTP/1.1" 200 - - call_trace=C:\Users\tiago\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\_internal.py L97  
+[2024-11-28 23:33:02,540] INFO _log() L97   127.0.0.1 - - [28/Nov/2024 23:33:02] "GET /lista?id=1 HTTP/1.1" 200 - - call_trace=C:\Users\tiago\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\_internal.py L97  
+[2024-11-28 23:33:02,553] INFO _log() L97   127.0.0.1 - - [28/Nov/2024 23:33:02] "GET /lista?id=1 HTTP/1.1" 200 - - call_trace=C:\Users\tiago\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\_internal.py L97  
+[2024-11-28 23:33:09,296] INFO _log() L97   127.0.0.1 - - [28/Nov/2024 23:33:09] "[31m[1mPOST /produto HTTP/1.1[0m" 422 - - call_trace=C:\Users\tiago\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\_internal.py L97  
+[2024-11-28 23:33:09,296] WARNING get_lista() L186  Erro ao buscar lista '123', Lista não encontrado na base :/ - call_trace=D:\Tiago\PUCRio\mvp\api_slc\app.py L186 
+[2024-11-28 23:33:09,297] INFO _log() L97   127.0.0.1 - - [28/Nov/2024 23:33:09] "[33mGET /lista?id=123 HTTP/1.1[0m" 404 - - call_trace=C:\Users\tiago\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\_internal.py L97  
+[2024-11-28 23:33:18,116] INFO _log() L97   127.0.0.1 - - [28/Nov/2024 23:33:18] "GET /produtos?id_lista=1 HTTP/1.1" 200 - - call_trace=C:\Users\tiago\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\_internal.py L97  
+[2024-11-28 23:33:18,150] INFO _log() L97   127.0.0.1 - - [28/Nov/2024 23:33:18] "GET /lista?id=1 HTTP/1.1" 200 - - call_trace=C:\Users\tiago\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\_internal.py L97  
+[2024-11-28 23:33:18,156] INFO _log() L97   127.0.0.1 - - [28/Nov/2024 23:33:18] "GET /lista?id=1 HTTP/1.1" 200 - - call_trace=C:\Users\tiago\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\_internal.py L97  
+[2024-11-28 23:38:34,950] INFO _log() L97   127.0.0.1 - - [28/Nov/2024 23:38:34] "GET /lista?id=1 HTTP/1.1" 200 - - call_trace=C:\Users\tiago\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\_internal.py L97  
+[2024-11-28 23:38:34,951] INFO _log() L97   127.0.0.1 - - [28/Nov/2024 23:38:34] "GET /produtos?id_lista=1 HTTP/1.1" 200 - - call_trace=C:\Users\tiago\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\_internal.py L97  
+[2024-11-28 23:38:48,979] INFO _log() L97   127.0.0.1 - - [28/Nov/2024 23:38:48] "[31m[1mPOST /produto HTTP/1.1[0m" 422 - - call_trace=C:\Users\tiago\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\_internal.py L97  
+[2024-11-28 23:39:54,446] INFO _log() L97   127.0.0.1 - - [28/Nov/2024 23:39:54] "GET /lista?id=1 HTTP/1.1" 200 - - call_trace=C:\Users\tiago\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\_internal.py L97  
+[2024-11-28 23:39:54,452] INFO _log() L97   127.0.0.1 - - [28/Nov/2024 23:39:54] "GET /produtos?id_lista=1 HTTP/1.1" 200 - - call_trace=C:\Users\tiago\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\_internal.py L97  
+[2024-11-28 23:42:13,152] INFO _log() L97   127.0.0.1 - - [28/Nov/2024 23:42:13] "GET /lista?id=1 HTTP/1.1" 200 - - call_trace=C:\Users\tiago\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\_internal.py L97  
+[2024-11-28 23:42:13,166] INFO _log() L97   127.0.0.1 - - [28/Nov/2024 23:42:13] "GET /produtos?id_lista=1 HTTP/1.1" 200 - - call_trace=C:\Users\tiago\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\_internal.py L97  
+[2024-11-28 23:42:22,625] INFO _log() L97   127.0.0.1 - - [28/Nov/2024 23:42:22] "[31m[1mPOST /produto HTTP/1.1[0m" 422 - - call_trace=C:\Users\tiago\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\_internal.py L97  
+[2024-11-28 23:43:00,856] INFO _log() L97   127.0.0.1 - - [28/Nov/2024 23:43:00] "GET /lista?id=1 HTTP/1.1" 200 - - call_trace=C:\Users\tiago\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\_internal.py L97  
+[2024-11-28 23:43:00,857] INFO _log() L97   127.0.0.1 - - [28/Nov/2024 23:43:00] "GET /produtos?id_lista=1 HTTP/1.1" 200 - - call_trace=C:\Users\tiago\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\_internal.py L97  
+[2024-11-28 23:45:17,892] INFO _log() L97   [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.1.73:5000 - call_trace=C:\Users\tiago\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\_internal.py L97  
+[2024-11-28 23:45:17,893] INFO _log() L97   [33mPress CTRL+C to quit[0m - call_trace=C:\Users\tiago\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\_internal.py L97  
+[2024-11-28 23:45:20,895] INFO _log() L97   127.0.0.1 - - [28/Nov/2024 23:45:20] "GET /lista?id=1 HTTP/1.1" 200 - - call_trace=C:\Users\tiago\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\_internal.py L97  
+[2024-11-28 23:45:20,900] INFO _log() L97   127.0.0.1 - - [28/Nov/2024 23:45:20] "GET /produtos?id_lista=1 HTTP/1.1" 200 - - call_trace=C:\Users\tiago\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\_internal.py L97  
+[2024-11-28 23:45:27,451] INFO _log() L97   127.0.0.1 - - [28/Nov/2024 23:45:27] "POST /produto HTTP/1.1" 200 - - call_trace=C:\Users\tiago\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\_internal.py L97  
+[2024-11-28 23:45:33,280] INFO _log() L97   127.0.0.1 - - [28/Nov/2024 23:45:33] "GET /lista?id=1 HTTP/1.1" 200 - - call_trace=C:\Users\tiago\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\_internal.py L97  
+[2024-11-28 23:45:33,281] INFO _log() L97   127.0.0.1 - - [28/Nov/2024 23:45:33] "GET /produtos?id_lista=1 HTTP/1.1" 200 - - call_trace=C:\Users\tiago\AppData\Local\Programs\Python\Python313\Lib\site-packages\werkzeug\_internal.py L97  
