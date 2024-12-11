@@ -1,8 +1,9 @@
-# Minha API
+# API Lista de Compras Compartilhada
+Apresentação do MVP do curso **Desenvolvimento Full Stack Básico**
 
-Este pequeno projeto faz parte do material diático da Disciplina **Desenvolvimento Full Stack Básico** 
+Essa é a API do projeto de MVP para uma lista de compras compartilhada on line.
 
-O objetivo aqui é ilutsrar o conteúdo apresentado ao longo das três aulas da disciplina.
+O objetivo do sistema é cadastrar as listas de compras e os seus produtos relacionados para que ao final do projeto os usuários possam obter relatórios que informam os valores gastos com mercado.
 
 ---
 ## Como executar 
