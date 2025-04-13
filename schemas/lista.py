@@ -57,7 +57,7 @@ class ListaDelSchema(BaseModel):
     """ Define como deve ser a estrutura do dado retornado após uma requisição
         de remoção.
     """
-    message: str
+    mesage: str
     nome: str
 
 def apresenta_lista(lista: Lista):

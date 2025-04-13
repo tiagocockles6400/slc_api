@@ -1,4 +1,4 @@
-from schemas.produto import ProdutoSchema, ProdutoBuscaSchema, ProdutoBuscaProdutoSchema, ProdutoViewSchema, \
+from schemas.produto import ProdutoSchema, ProdutoBuscaSchema, ProdutoViewSchema, ProdutoBuscaIdSchema, \
                             ListagemProdutosSchema, ProdutoDelSchema, apresenta_produtos, \
                             apresenta_produto, apresenta_produtos
 from schemas.lista import ListaSchema, ListaBuscaSchema, ListaViewSchema, \

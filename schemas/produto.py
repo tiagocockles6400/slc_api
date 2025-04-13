@@ -19,11 +19,11 @@ class ProdutoBuscaSchema(BaseModel):
     """
     id_lista: int = 1
 
-class ProdutoBuscaProdutoSchema(BaseModel):
-    """ Define como deve ser a estrutura que representa a busca de um produto. Que será
+class ProdutoBuscaIdSchema(BaseModel):
+    """ Define como deve ser a estrutura que representa a busca. Que será
         feita apenas com base no id do produto.
     """
-    id: int = 1
+    id_produto: int = 1
 
 
 class ListagemProdutosSchema(BaseModel):
@@ -57,7 +57,6 @@ class ProdutoViewSchema(BaseModel):
     nome: str = "Banana Prata"
     quantidade: Optional[int] = 12
     valor: float = 12.50
-    total_cometarios: int = 1
 
 
 class ProdutoDelSchema(BaseModel):
